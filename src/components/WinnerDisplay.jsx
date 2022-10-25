@@ -21,7 +21,13 @@ const WinnerDisplay = ({ winner, setDisplayWinnerFlag, celebratingFlag }) => {
         ) : (
           <div className="flex items-center justify-center flex-col">
             <span className="text-4xl font-semibold text-center flex flex-col gap-4">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 font-bold text-6xl">
+              <span
+                className={`bg-clip-text text-transparent bg-gradient-to-r ${
+                  winner.current === "X"
+                    ? "from-pink-600 to-red-500"
+                    : "from-blue-500 to-violet-500"
+                } font-bold text-6xl`}
+              >
                 {winner.current}
               </span>
               is The Winner

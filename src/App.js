@@ -19,6 +19,7 @@ function App() {
 
   let arrOfWinners = [];
 
+  //To Inner X and O
   const HandelChange = (index) => {
     if (state) {
       if (
@@ -39,6 +40,7 @@ function App() {
     }
   };
 
+  // To Repeat The Game and clear The Inputs
   useEffect(() => {
     if (clear) {
       for (let i = 0; i < 9; i++) {
@@ -51,6 +53,7 @@ function App() {
     }
   }, [clear]);
 
+  // To Increase The Counters Of Winning for X and O
   useEffect(() => {
     if (winner.current === "X") {
       setXCounter((prev) => prev + 1);
@@ -63,6 +66,7 @@ function App() {
     }
   }, [state]);
 
+  // To Return The Array of Three Winning Items
   const condition = (n1, n2, n3) => {
     if (
       innerValue.current[n1] === innerValue.current[n2] &&
@@ -74,6 +78,7 @@ function App() {
     }
   };
 
+  //To check Who are the three winning items and if it's Draw
   const HandelCheck = () => {
     if (lengthOfArray.current === 9) {
       winner.current = "Draw";
